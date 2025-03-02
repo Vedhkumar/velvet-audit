@@ -1,0 +1,2267 @@
+
+
+[37m2025-02-28 16:48:41.838[39m[0m[0m [33m[1mWARN[22m[39m[0m[0m [1m[37mService[39m[22m[0m[0m =>Tenderly config doesn't exist, empty string values are returned instead.
+[37m2025-02-28 16:48:41.866[39m[0m[0m [33m[1mWARN[22m[39m[0m[0m [1m[37mService[39m[22m[0m[0m =>Tenderly config doesn't exist, empty string values are returned instead.
+[37m2025-02-28 16:48:42.918[39m[0m[0m [31m[1mERROR[22m[39m[0m[0m [1m[37mHardhat[39m[22m[0m[0m =>Error encountered while fetching public networks
+No need to generate any newer typings.
+[37m2025-02-28 16:48:43.112[39m[0m[0m [31m[1mERROR[22m[39m[0m[0m [1m[37mHardhat[39m[22m[0m[0m =>Error encountered while fetching public networks
+
+  Tests for Portfolio Config
+    Tests for Portfolio Config
+portfolioFactory address: 0xB742944123D41601348faC923e9d82333CaA144f
+portfolio deployed to: 0xf7c951865286d5C800b06e155557f136F589Cc3e
+      PortfolioConfig Tests
+        ✔ create portfolio should fail if custodial is true and no address is passed in _owner
+        ✔ create portfolio should fail if threshold length greater than owner length
+        ✔ create portfolio should fail if token whitelisting is enabled but whitelist token array is empty
+        ✔ asset manager should not be able to create portfolio will min Portfolio Price less then min portfolio pirce set by protocol
+        ✔ non-assetManager should not be able to update minPortfolioPrice
+        ✔ protocol should be able to update minPortfolioPrice and assetManager can use newPrice for vault portfolio creation
+        ✔ non assetManager should not be able to update initial portfolioPrice
+        ✔ assetManager should not be able to update initial portfolioPrice less then protocol minInitialPortfolioAmount
+        ✔ assetManager should not be able to update initial portfolioPrice to zero
+        ✔ create portfolio should fail if whitelisted tokens include zero addresses
+        ✔ Initialize should fail if the number of tokens exceed the max limit set during deployment (current = 15)
+        ✔ super admin should transfer role and set nonOwner as new super admin
+        ✔ new superadmin should be able to grant ,revoke assetmanager admin role
+        ✔ new superadmin should be able to grant ,revoke whitelistManager role
+        ✔ new super admin should transferRole to old admin 
+        ✔ only Super admin can transfer roles
+        ✔ initialize should revert for token duplicates
+        ✔ should init tokens
+        ✔ non owner should not be able to add asset manager admin
+        ✔ owner should be able to add asset manager admin
+        ✔ non asset manager admin should not be able to add asset manager
+        ✔ new asset manager admin should be able to add asset manager
+        ✔ owner should be able to add asset manager
+        ✔ non-owner should be able to pause protocol
+        ✔ owner should not be able to update the protocol streaming fee to higher than 1%
+        ✔ non-owner should not be able to update the protocol streaming fee
+        ✔ should fail if wrong owner tried to accept ownership for protocolConfig
+        ✔ should fail if wrong owner tried to accept ownership portfolio factory
+        ✔ owner should be able to transfer protocol config ownership
+        ✔ owner should be able to transfer portfolio factory ownership
+        ✔ new owner should be able to update the protocol streaming fee
+        ✔ should fail if owner tried to input previous value as new value while updating protocol streaming fee
+        ✔ owner should be able to transfer protocol config ownership
+        ✔ owner should be able to transfer portfolio factory ownership
+        ✔ owner should be able to update the protocol bottom fee constraint
+        ✔ non-owner should not be able to update the protocol fee
+        ✔ owner should not be able to update the protocol fee to higher than 50%
+        ✔ should fail if owner tried to input previous value as new value while updating protocol fee
+        ✔ owner should be able to update the protocol fee
+        ✔ should protocol pause
+        ✔ claiming reward tokens should fail if protocol is paused
+        ✔ asset manager should not be able to remove portfolio token if protocol is paused
+        ✔ asset manager should not be able to remove non-portfolio token if protocol is paused
+        ✔ asset manager should not be able to remove portfolio token partially if protocol is paused
+        ✔ asset manager should not be able to remove non-portfolio partially token if protocol is paused
+        ✔ non-protocol owner should not be able to change whitelsitAsset limit
+        ✔ protocol owner should be able to change whitelsitAsset limit
+        ✔ should upgrade Proxy Portfolio To New Contract for 1st Portfolio
+        ✔ should unpause protocol
+        ✔ claiming reward tokens should fail if reward target is not enabled
+        ✔ non protocol owner should not be able to enable reward target
+        ✔ protocol owner should be able to enable reward target
+        ✔ non protocol owner should not be able to enable reward targets
+        ✔ protocol owner should not be able to enable reward targets passing an empty list
+        ✔ protocol owner should be able to enable reward target
+        ✔ reward token target should be usable to claim after enabling
+        ✔ should protocol emergency unpause and unpause protocol
+        ✔ should protocol emergency pause
+        ✔ claim removed tokens should fail if protocol is emergency paused
+        ✔ should protocol pause should be true if
+        ✔ should protocol emergency pause
+        ✔ should protocol emergency pause by non owner should fail
+        ✔ should protocol emergency unpause by any nonOwner after 4 weeks should succeed
+        ✔ should protocol emergency pause by nonOwner should fail if protocol not emergency paused
+        ✔ should protocol emergency pause should fail if protocol has been unpaused less than 5 minutes ago
+        ✔ should protocol emergency pause if protocol has been unpaused more than 5 minutes ago
+        ✔ should protocol emergency unpause 
+        ✔ should retrieve the current max asset limit from the ProtocolConfig
+        ✔ asset manager should not be able to make the previous public fund transferable to only whitelisted addresses
+        ✔ should update the max asset limit to 10 in the ProtocolConfig
+        ✔ should revert if not a superAdmin + nonRebalancer contract calls functions
+        ✔ Calling the function mintShares should fail (only callable by contracts)
+        ✔ Initialize should fail if the number of tokens exceed the max limit set by the Registry (current = 10)
+        ✔ owner should be able to add asset manager
+        ✔ non owner should not be able to add asset manager
+        ✔ deposit should fail if user is not whitelisted
+        ✔ should convert private fund to public
+        ✔ Enable and Disable Solver
+        ✔ Add addr1 whitelisted user
+        ✔ non owner should not be able to add whitelist manager admin
+        ✔ owner should be able to add asset whitelist manager admin
+        ✔ owner should not be able to add portfolio manager
+        ✔ owner should not be able to add rebalancing manager
+        ✔ non whitelist manager admin should not be able to add asset manager
+        ✔ new whitelist manager admin should be able to add whitelist manager
+        ✔ owner should be able to add whitelist manager
+        ✔ non whitelist manager should not be able to update merkle root
+        ✔ Whitelist manager should be able to update merkle root
+        ✔ Whitelist manager should be able to add and remove a whitelisted user
+        ✔ non whitelist manager admin should not be able to revoke whitelist manager
+        ✔ whitelist manager admin should be able to revoke whitelist manager
+        ✔ Whitelist manager should not be able to add user to whitelist after his role was revoked
+        ✔ Non asset manager should not be able to propose new management fee
+        ✔ Asset manager should propose new management fee
+        ✔ Asset manager should not be able to update management fee before 28 days passed
+        ✔ Non asset manager should not be able to delete proposed new management fee
+        ✔ Asset manager should be able to delete proposed new management fee
+        ✔ Asset manager should not be able to delete proposed management fee again to prevent event flooding
+        ✔ Non asset manager should not be able to update management fee
+        ✔ asset manager should not be able to update management without proposing new fees
+        ✔ Asset manager should propose new management fee
+        ✔ Asset manager should be able to update management fee after 28 days passed
+        ✔ Asset manager should not be able to update management fee again to prevent event flooding
+        ✔ Non asset manager should not be able to propose new performance fee
+        ✔ Asset manager should propose new performance fee
+        ✔ Asset manager should not be able to update performance fee before 28 days passed
+        ✔ Non asset manager should not be able to delete proposed new performance fee
+        ✔ Asset manager should be able to delete proposed new performance fee
+        ✔ Asset manager should not be able to delete proposed performance fee again to prevent event flooding
+        ✔ Non asset manager should not be able to update performance fee
+        ✔ asset manager should not be able to update performance without proposing new fees
+        ✔ Asset manager should propose new performance fee
+        ✔ Asset manager should be able to update performance fee after 28 days passed
+        ✔ Asset manager should not be able to update performance fee again to prevent event flooding
+        ✔ Non asset manager should not be able to propose new entry fee
+        ✔ asset manager should not be able to propose wrong entry and exit fee(entry)
+        ✔ asset manager should not be able to propose wrong entry and exit fee(exit)
+        ✔ Asset manager should propose new entry and exit fee
+        ✔ Asset manager should be able to update entry and exit fee before 28 days passed
+        ✔ Non asset manager should not be able to delete proposed new entry and exit fee
+        ✔ Asset manager should be able to delete proposed new entry and exit fee
+        ✔ Asset manager should not be able to delete proposed entry and exit fees again to prevent event flooding
+        ✔ Non asset manager should not be able to update entry and exit fee
+        ✔ asset manager should not be able to update entry and exit fee without proposing new fees
+        ✔ Asset manager should propose new entry and exit fee
+        ✔ Asset manager should be able to update entry and exit fees after 28 days passed
+        ✔ Asset manager should not be able to update entry and exit fees again to prevent event flooding
+        ✔ Non asset manager should not be able to update the asset manager treasury
+        ✔ Asset manager should not be able to update the asset manager treasury
+        ✔ Non asset manager should not be able to update the velvet treasury
+        ✔ Protocol owner should not be able to set same address as velvet treasury
+        ✔ Asset manager should be able to update the velvet treasury
+        ✔ Non asset manager should not be able to update the price oracle
+        ✔ Asset manager should be able to update the price oracle
+        ✔ should upgrade the protocol config
+        ✔ non-assetManager tried to remove token and it should fail
+        ✔ should fail if snapshot is not taken and user tries to claim
+owner address 0x82a7623A175846245F80e81D641D19fC07698231
+owner(msg.sender) 0x82a7623A175846245F80e81D641D19fC07698231
+        ✔ should verify ownership
+        ✔ non-owner should not be able to update the cooldown period
+        ✔ owner should not be able to update the cooldown period smaller than 1 minute
+        ✔ owner should not be able to update the cooldown period greater than 14 days
+        ✔ owner should be able to update the cooldown period
+        ✔ non-owner should not be able to update the allowed dust tolerance
+        ✔ owner should not be able to update the allowed dust tolerance with the value 0
+        ✔ owner should not be able to update the allowed dust tolerance with the value 10_000
+        ✔ owner should be able to update the allowed dust tolerance
+        ✔ non-owner should not be able to update the token removal vault module base address
+        ✔ owner should be able to update the token removal vault module base address
+
+  Tests for Upgradeability
+    Tests for Deposit + Withdrawal
+portfolioFactory address: 0x87aBaE1535303d5333B859cA3c6D75625D1191DF
+portfolio deployed to: 0x21831E8ef5Bab4Ea395D00779274Af61A1B79929
+rebalancing: 0xeC2A39500b00C19F0C77B483Fa8bDD9Ef1a6b98e
+      Upgradeability Testing
+        ✔ should init tokens
+        ✔ owner should approve tokens to permit2 contract
+
+        1) should deposit multitoken into fund(First Deposit)
+
+        2) should deposit multitoken into fund by nonOwner(Second Deposit)
+
+        3) should withdraw in multitoken by owner
+
+        4) should withdraw multitoken by nonOwner
+        ✔ store values to validate upgradeability
+        ✔ should pause protocol
+        ✔ validate values after upgrading the contract
+        ✔ should upgrade portfolio contract to V3.2
+        ✔ should unpause protocol
+
+        5) should deposit multitoken into fund(First Deposit)
+
+        6) should deposit multitoken into fund by nonOwner(Second Deposit)
+
+        7) should withdraw in multitoken by owner
+
+        8) should withdraw multitoken by nonOwner
+        ✔ store values to validate upgradeability
+        ✔ should pause protocol
+        ✔ validate values after upgrading the contract
+        ✔ should upgrade portfolio contract to V3.3
+        ✔ should unpause protocol
+
+        9) should deposit multitoken into fund(First Deposit)
+
+        10) should deposit multitoken into fund by nonOwner(Second Deposit)
+
+        11) should withdraw in multitoken by owner
+
+        12) should withdraw multitoken by nonOwner
+        ✔ should pause protocol
+        ✔ store fee values before upgrade
+        ✔ should upgrade the fee module
+        ✔ validate values after upgrade
+        ✔ should unpause protocol
+
+        13) should deposit multitoken into fund(First Deposit)
+
+        14) should deposit multitoken into fund by nonOwner(Second Deposit)
+
+        15) should withdraw in multitoken by owner
+
+        16) should withdraw multitoken by nonOwner
+        ✔ should pause protocol
+        ✔ should upgrade portfolio contract to V3.4
+        ✔ should unpause protocol
+        ✔ deposit should fail after wrong upgrade
+        ✔ should pause protocol
+        ✔ owner should be able upgrade back to portfolio contract to V3.3 after wrong upgrade
+        ✔ owner should be able upgrade tokenExclusionManager
+        ✔ store values to validate upgradeability
+
+  Tests for Deposit + Withdrawal
+    Tests for Deposit + Withdrawal
+portfolioFactory address: 0x3856c50175520877b4Bc9d09303F40E56F148a19
+portfolio deployed to: 0x912949462b6dF012C81B1d012128E4F5E00c7EBB
+rebalancing: 0xe8cA3C1B20C1908E4fc464eeE6fccE595B120483
+      Withdrawal Tests
+        ✔ should init tokens
+        ✔ owner should approve tokens to permit2 contract
+        ✔ should protocol pause
+        ✔ deposit multitoken into fund(First Deposit) should fail if protocol is paused
+        ✔ should protocol pause
+
+        17) should deposit multitoken into fund(First Deposit)
+
+        18) should deposit multitoken into fund by nonOwner(Second Deposit)
+
+        19) should deposit multitoken into fund (Third Deposit)
+        ✔ should not be able to set minIdxTokenAmount less then protocol minIdxTokenAmount
+
+        20) should deposit multitoken into fund by nonOwner(Fourth Deposit)
+        ✔ charge performance fee should fail if caller is not asset manager
+        ✔ should charge protocol and management fee
+amountPortfolioToken BigNumber { value: "0" }
+
+        21) should not be able to witdraw if idx token is less then minPortfolioTokenHoldingAmount and not zero
+        ✔ assetmanager should not be able to change the minPortfolioTokenHoldingAmount to value less then set by protocol
+        ✔ assetmanager should not be able to set zero minPortfolioTokenHoldingAmount
+        ✔ assetmanager should be able to set new minPortfolioTokenHoldingAmount
+        ✔ non assetmanager should not be able to change the minPortfolioTokenHoldingAmount
+amountPortfolioToken BigNumber { value: "0" }
+
+        22) should not be able to witdraw if idx token is less then updated minPortfolioTokenHoldingAmount and not zero
+        ✔ should protocol pause
+        ✔ charge performance fee should fail if protocol emergency paused
+        ✔ charge protocol and management fee should fail if protocol emergency paused
+        ✔ withdraw in multitoken by owner should fail if protocol is emergency paused
+        ✔ unpause only withdrawal
+
+        23) should fail to withdraw in multitoken for owner if tokens are not approved
+
+        24) should withdraw in multitoken for owner
+        ✔ should protocol pause
+
+        25) should withdraw multitoken by nonOwner
+        ✔ assetmanager should be able to change initialPortfolioAmount
+        ✔ treasuries withdrawal should fail, if exemption token list is greater then portoflio tokens
+
+        26) treasuries should withdraw their fee
+
+        27) new user should mint token based on new initialPortfolioAmount
+
+  Tests for Deposit + Withdrawal
+    Tests for Deposit + Withdrawal
+portfolioFactory address: 0x554e23728FED657b2Eba350489A9d12B1b49b039
+portfolio deployed to: 0x02d53F4Dc1bdB2214dAE0da09235691D6F937fc0
+rebalancing: 0x799bf0D0a6f58d16C85CCCcA178e58F70e458A25
+      Deposit Tests
+        ✔ should retrieve the current max asset limit from the ProtocolConfig
+        ✔ should update the max asset limit to 10 in the ProtocolConfig
+        ✔ should revert if not a superAdmin + nonRebalancer contract calls functions
+        ✔ Calling the function mintShares should fail (only callable by contracts)
+        ✔ Initialize should fail if the number of tokens exceed the max limit set by the Registry (current = 10)
+        ✔ should init tokens
+        ✔ should init 2nd portfolio tokens
+        ✔ deposit should fail if user has not approve permit2 contract
+        ✔ owner should approve tokens to permit2 contract
+        ✔ nonOWner should approve tokens to permit2 contract
+        ✔ should deposit multitoken into fund should fail if caller is asset manager treasury
+        ✔ should deposit multitoken into fund should fail if caller is asset velvet treasury
+        ✔ non owner should not be able to change the minPortfolioTokenHoldingAmount
+
+        28) deposit multitoken into fund(First Deposit) should fail
+        ✔ deposit multitoken into fund(First Deposit) should fail if user inputs zero depositAmounts
+
+        29) should deposit multitoken into 2nd fund(First Deposit)
+
+        30) Deposit multitoken into 2nd fund(Second Deposit) should fail, if user inputs zero Deposit Amount
+
+        31) should deposit multitoken into 2nd fund(Second Deposit)
+
+        32) should deposit multitoken into 2nd fund(Third Deposit)
+
+        33) should deposit multitoken into fund(First Deposit)
+supplyAfter BigNumber { value: "100000000000000000000" }
+        ✔ should deposit multitoken in behalf of another user
+leastPercentage  BigNumber { value: "45422728890036502" }
+totalSupply  BigNumber { value: "100000000000000000000" }
+
+        34) should deposit multitoken into fund (Second Deposit) should fail if entry fee is not calculated in expected token amount
+leastPercentage  BigNumber { value: "86235717459828080" }
+totalSupply  BigNumber { value: "100000000000000000000" }
+
+        35) should deposit multitoken into fund (Second Deposit)
+        ✔ owner can change minPortfolioTokenHoldingAmount
+
+        36) assetManager changes minPortfoliotokenHoldingAmount and user should be not be able to mint token less then accepted by assetManager
+
+        37) should deposit multitoken into fund by nonOwner(Third Deposit)
+
+        38) should deposit multitoken into fund by nonOwner(Fourth Deposit)
+
+        39) asset manager teasury should greater then 0
+        ✔ owner should be able to update the protocol fee
+
+        40) should deposit multitoken into fund
+        ✔ update tokens with non whitelist token should revert
+        ✔ should revert is handler is not enabled
+        ✔ should fail if protocol is paused
+        ✔ should be able to unpause protocol
+
+        41) should revert if wrong buy token is passed to enso
+
+        42) should revert if wrong buy token is passed to enso and as buy token (not included in new token list)
+
+        43) should revert if portfolio token should be sold completely but balance is not zero
+        ✔ rebalance should revert if expected output amount length unequal tokens length
+        ✔ rebalance should revert if calldata length unequal tokens length
+        ✔ rebalance should revert if sellamount length unequal tokens length
+
+        44) should rebalance should fail if bought token is missing in new token list
+        ✔ should rebalance should fail if caller is not asset manager
+
+        45) should rebalance
+
+        46) should update weights/amounts
+        ✔ assetmanager should remove disbale token
+
+        47) user1(owner) should be able to claim their removed tokens at snapshot id 1
+        ✔ if user1 again try to claim same token twice, he will not receive any tokens
+        ✔ should withdraw in multitoken by nonwOwner(user2)
+        ✔ user2(nonOwner) should claim removed tokens after complete withdrawal from portfolio
+        ✔ should fail if random user not eligible trying to claim tokens, should not get any token
+        ✔ non asset manager should not be able to remove a token partially
+        ✔ should fail to remove 100% of the token calling the function to remove a token partially
+        ✔ assetManager should remove token partially
+totalSupply BigNumber { value: "33564820673004" }
+
+        48) user1 (owner) should be able to claim the partially removed token
+
+        49) assetManager should create 2 snapshot(remove 2 tokens) simultaneously for 2nd Portfolio Fund
+
+        50) should fail if startId is greater then last Id
+
+        51) should fail if last Id is greater then current snapshot id
+
+        52) should fail if id is greater then currentSnapsotId
+
+        53) user1(owner) should be able to claim both of his removed tokens
+        ✔ only portfolio manager can set userRecord that is portfolio contract and rebalancing contract
+
+        54) user1(owner) should not get any token if he claims removed token
+
+        55) assetManager should create 2 snapshot(remove 2 tokens) simultaneously for 2nd Portfolio Fund
+
+        56) addr2 should claim all 7 tokens
+
+        57) assetManager should remove last token from portfoliio
+
+        58) addr2 should be able to claim last token
+
+        59) addr2 should not be able to claim token if already claimed
+
+        60) old user(owner) should be able to claim removed tokens
+
+  Tests for Deposit + Withdrawal
+    Tests for Deposit + Withdrawal
+portfolioFactory address: 0x63799602C3284ac8133feEFc79B817A50C23517f
+portfolio deployed to: 0x2f80774A72c53E478d0978500B6b1a4A000cFb6C
+rebalancing: 0xA480577F351766221133d570e157337d1830DBCC
+      Deposit Tests
+        ✔ should retrieve the current max asset limit from the ProtocolConfig
+        ✔ should update the max asset limit to 10 in the ProtocolConfig
+        ✔ should revert if not a superAdmin + nonRebalancer contract calls functions
+        ✔ Calling the function mintShares should fail (only callable by contracts)
+        ✔ Initialize should fail if the number of tokens exceed the max limit set by the Registry (current = 10)
+        ✔ should init tokens
+SupplyBefore BigNumber { value: "0" }
+
+        61) should swap tokens for user using native token
+SupplyBefore BigNumber { value: "0" }
+
+        62) should swap tokens for user using one of the portfolio token
+SupplyBefore BigNumber { value: "0" }
+
+        63) should swap tokens for user using erc20 token other then portfolio token
+
+        64) should revert if receiver in calldata is not token holder
+
+        65) should revert if receiver in calldata is not token holder and tries to withdraw in native token
+        ✔ withdrawal should fail if target address is not whitelisted
+
+        66) should withdraw in single token by user
+
+        67) should withdraw in single token by user in native token
+
+        68) should fail if balance to deposit is zero
+SupplyBefore BigNumber { value: "0" }
+        ✔ should fail if tokens length is not equal calldata length
+
+  Tests for Deposit + Withdrawal
+    Tests for Deposit + Withdrawal
+positionWrapperBaseAddress: 0xA8eF2cB35C92DfCE14Ec5Af725C9219b346E879a
+
+      69) "before all" hook in "Tests for Deposit + Withdrawal"
+
+  Tests for Deposit + Withdrawal
+    Tests for Position Manager + Wrapper
+portfolioFactory address: 0x744BDaF1D22864a8CE94df8A6e95a5F9FeD77132
+      Position Wrapper Tests
+        ✔ non owner should not be able to enable the uniswapV3 position manager
+        ✔ owner should not be able to enable the uniswapV3 position manager after it has already been enabled
+        ✔ non owner should not be able to create a new position
+        ✔ owner should not be able to create a new position with a non-whitelisted token
+        ✔ owner should not be able to create a new position with disabled tokens
+
+        70) protocol owner should enable tokens
+
+        71) owner should create new position
+
+        72) should init tokens should fail if the list includes a non-whitelisted token
+
+        73) should init tokens
+        ✔ owner should approve tokens to permit2 contract
+        ✔ nonOwner should approve tokens to permit2 contract
+
+        74) should deposit multi-token into fund (First Deposit)
+
+        75) should deposit multi-token into fund (Second Deposit)
+
+        76) should deposit multi-token into fund (Third Deposit)
+
+        77) should deposit multi-token into fund from nonOwner (Fourth Deposit)
+
+        78) nonOwner should not be able to update the price range
+
+        79) owner should not be able to update the price range with zero swap amount
+
+        80) owner should update the price range
+
+        81) should withdraw in multitoken by nonwOwner
+
+        82) should withdraw in multitoken by owner
+        ✔ nonOwner should not be able to update allowedRatioDeviationBps param
+        ✔ owner should not be able to update allowedRatioDeviationBps param with invalid value
+        ✔ owner should be able to update allowedRatioDeviationBps param
+        ✔ nonOwner should not be able to update slippage for fee reinvestment param
+        ✔ owner should not be able to update slippage for fee reinvestment param with invalid value
+        ✔ owner should be able to update slippage for fee reinvestment param
+
+        83) owner should not be able to upgrade the position wrapper if protocol is not paused
+        ✔ owner should not be able to  upgrade the position manager if protocol is not paused
+        ✔ should pause protocol
+        ✔ should upgrade the position manager
+        ✔ nonOwner should not be able to upgrade the position manager
+
+        84) should upgrade the position wrapper
+
+        85) nonOwner should not be able to upgrade the position wrapper
+
+  Tests for Deposit + Withdrawal
+    Tests for Deposit + Withdrawal
+portfolioFactory address: 0x33d1841286FaDDB5290ECAbc208590E7F3a4a33c
+portfolio deployed to: 0xcA1d784BA79c507a4bfD8f28Ba91753F83729981
+rebalancing: 0xAf2930399e5E9bc99bC90a20e885ad7eD6f7D387
+      Deposit Tests
+        ✔ should init tokens
+SupplyBefore BigNumber { value: "0" }
+
+        86) should swap tokens for user using native token
+SupplyBefore BigNumber { value: "0" }
+
+        87) should swap tokens for user using native token
+Balance to rebalance 0
+
+        88) should rebalance to lending token aArbDAI
+Balance to rebalance 0
+
+        89) should rebalance to lending token aArbLINK
+SupplyBefore BigNumber { value: "0" }
+
+        90) should swap tokens for user using native token
+
+        91) should remove tokens as collateral
+
+        92) should enable collateral
+ARB Balance before BigNumber { value: "0" }
+
+        93) should borrow ARB using aArbLink as collateral
+USDT Balance before BigNumber { value: "0" }
+
+        94) should borrow USDT using aARBDAI as collateral
+balanceBorrowed before repay BigNumber { value: "0" }
+USDT Balance before repay: 0
+balanceToRepay 0
+
+        95) should repay half of borrowed USDT using vault token
+before getUserAccountData
+balanceBorrowed before repay BigNumber { value: "0" }
+balanceToRepay 0
+balanceToSwap 0
+flashLoanFee BigNumber { value: "5" }
+
+        96) should repay half of ARB using flashloan
+amountPortfolioToken BigNumber { value: "0" }
+
+        97) should withdraw in BTC by owner(user1)
+
+  Tests for Deposit + Withdrawal
+    Tests for Deposit + Withdrawal
+portfolioFactory address: 0x6bAa4955771f2286136b72CA094e410E6D90eCbf
+portfolio deployed to: 0xb85f0778ea95D1368E05763B76bd554111992f09
+rebalancing: 0x00Fc735a1FAF010514f32AAcA7d30CE546f6D949
+      Deposit Tests
+        ✔ should init tokens
+SupplyBefore BigNumber { value: "0" }
+
+        98) should swap tokens for user using native token
+SupplyBefore BigNumber { value: "0" }
+
+        99) should swap tokens for user using native token
+Balance to rebalance 0
+
+        100) should rebalance to lending token aArbWBTC
+Balance to rebalance 0
+
+        101) should rebalance to lending token aArbLINK
+SupplyBefore BigNumber { value: "0" }
+
+        102) should swap tokens for user using native token
+
+        103) should remove tokens as collateral
+
+        104) should enable collateral
+USDT Balance before BigNumber { value: "0" }
+
+        105) should borrow ARB using aArbLink as collateral
+USDT Balance before BigNumber { value: "0" }
+
+        106) should borrow USDT using aArbWBTC as collateral
+before getUserAccountData
+lendTokens []
+balanceBorrowed before repay BigNumber { value: "0" }
+balanceToRepay 0
+balanceToSwap 0
+flashLoanFee BigNumber { value: "5" }
+Before repay
+
+        107) should repay half of USDT using flashloan
+tokenToSwapInto 0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f
+amountPortfolioToken BigNumber { value: "0" }
+
+        108) should withdraw in BTC by owner(user1)
+
+·------------------------------------------------------------------|---------------------------|-------------|-----------------------------·
+|                       [90mSolc version: 0.8.17[39m                       ·  [90mOptimizer enabled: true[39m  ·  [90mRuns: 200[39m  ·  [90mBlock limit: 30000000 gas[39m  │
+···································································|···························|·············|······························
+|  [32m[1mMethods[22m[39m                                                                                                                                 │
+··························|········································|·············|·············|·············|···············|··············
+|  [1mContract[22m               ·  [1mMethod[22m                                ·  [32mMin[39m        ·  [32mMax[39m        ·  [32mAvg[39m        ·  [1m# calls[22m      ·  [1musd (avg)[22m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAccessController[39m       ·  grantRole                             ·      [36m51563[39m  ·      [31m51575[39m  ·      51568  ·            [90m9[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAccessController[39m       ·  revokeRole                            ·      [36m29621[39m  ·      [31m29633[39m  ·      29625  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  convertPrivateFundToPublic            ·          -  ·          -  ·      41033  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  deleteProposedEntryAndExitFee         ·          -  ·          -  ·      39861  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  deleteProposedManagementFee           ·          -  ·          -  ·      35855  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  deleteProposedPerformanceFee          ·          -  ·          -  ·      35818  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  enableUniSwapV3Manager                ·          -  ·          -  ·     539227  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  proposeNewEntryAndExitFee             ·          -  ·          -  ·     117964  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  proposeNewManagementFee               ·          -  ·          -  ·      91940  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  proposeNewPerformanceFee              ·          -  ·          -  ·      91982  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  removeWhitelistedUser                 ·          -  ·          -  ·      37705  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  updateAssetManagerTreasury            ·          -  ·          -  ·      40797  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  updateEntryAndExitFee                 ·          -  ·          -  ·      84412  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  updateInitialPortfolioAmount          ·          -  ·          -  ·      52742  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  updateManagementFee                   ·          -  ·          -  ·     133917  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  updateMinPortfolioTokenHoldingAmount  ·      [36m34911[39m  ·      [31m52788[39m  ·      46829  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  updatePerformanceFee                  ·          -  ·          -  ·     101905  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mAssetManagementConfig[39m  ·  whitelistUser                         ·      [36m51785[39m  ·      [31m75160[39m  ·      66210  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mERC20Upgradeable[39m       ·  approve                               ·      [36m31251[39m  ·      [31m60179[39m  ·      47743  ·           [90m44[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mFeeModule[39m              ·  chargeProtocolAndManagementFees       ·          -  ·          -  ·     116432  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mGuardable[39m              ·  transferOwnership                     ·      [36m32802[39m  ·      [31m52756[39m  ·      46096  ·            [90m6[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolio[39m              ·  initToken                             ·     [36m179424[39m  ·     [31m370108[39m  ·     241772  ·            [90m7[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolio[39m              ·  multiTokenDepositFor                  ·          -  ·          -  ·     504524  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolio[39m              ·  multiTokenWithdrawal                  ·     [36m224023[39m  ·     [31m522593[39m  ·     335880  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  acceptOwnership                       ·      [36m33208[39m  ·      [31m33230[39m  ·      33219  ·            [90m4[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  createPortfolioNonCustodial           ·    [36m4684562[39m  ·    [31m5056878[39m  ·    4765842  ·           [90m18[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  setPositionManagerAddresses           ·          -  ·          -  ·      73688  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  setTokenRemovalVaultModule            ·          -  ·          -  ·      35099  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  transferSuperAdminOwnership           ·          -  ·          -  ·      65270  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  upgradeFeeModule                      ·          -  ·          -  ·      69838  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  upgradePortfolio                      ·      [36m61812[39m  ·      [31m69912[39m  ·      68522  ·            [90m6[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  upgradePositionManager                ·          -  ·          -  ·      80112  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPortfolioFactory[39m       ·  upgradeTo                             ·          -  ·          -  ·      33977  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mPriceOracleL2[39m          ·  setFeeds                              ·          -  ·          -  ·     295098  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  disableSolverHandler                  ·          -  ·          -  ·      30462  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  enableProtocol                        ·          -  ·          -  ·      99382  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  enableRewardTarget                    ·          -  ·          -  ·      52676  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  enableRewardTargets                   ·          -  ·          -  ·      54089  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  enableSolverHandler                   ·      [36m52399[39m  ·      [31m52411[39m  ·      52408  ·            [90m9[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  enableSwapHandler                     ·          -  ·          -  ·      52323  ·            [90m7[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setAssetAndMarketControllers          ·          -  ·          -  ·     404052  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setAssetHandlers                      ·          -  ·          -  ·     226655  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setAssetLimit                         ·          -  ·          -  ·      33714  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setCoolDownPeriod                     ·          -  ·          -  ·      34815  ·           [90m10[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setEmergencyPause                     ·      [36m31143[39m  ·      [31m77358[39m  ·      48024  ·            [90m9[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setProtocolPause                      ·      [36m30225[39m  ·      [31m52137[39m  ·      41825  ·           [90m17[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setSupportedControllers               ·          -  ·          -  ·      98517  ·            [90m2[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setSupportedFactory                   ·      [36m51254[39m  ·      [31m51266[39m  ·      51263  ·            [90m7[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  setWhitelistLimit                     ·          -  ·          -  ·      33626  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateAllowedDustTolerance            ·          -  ·          -  ·      34813  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateAllowedRatioDeviationBps        ·          -  ·          -  ·      34787  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateAllowedSlippage                 ·          -  ·          -  ·      32055  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateMinInitialPortfolioAmount       ·          -  ·          -  ·      34953  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updatePriceOracle                     ·          -  ·          -  ·      35724  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateProtocolFee                     ·      [36m30092[39m  ·      [31m34916[39m  ·      31700  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateProtocolStreamingFee            ·          -  ·          -  ·      34881  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mProtocolConfig[39m         ·  updateVelvetTreasury                  ·          -  ·          -  ·      35368  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mRebalancing[39m            ·  removePortfolioToken                  ·          -  ·          -  ·     392443  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mRebalancing[39m            ·  removePortfolioTokenPartially         ·          -  ·          -  ·     353490  ·            [90m1[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mTokenExclusionManager[39m  ·  claimTokenAtId                        ·      [36m38469[39m  ·      [31m96083[39m  ·      50905  ·            [90m5[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mUniswapV2Handler[39m       ·  init                                  ·          -  ·          -  ·      50852  ·            [90m6[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mUniswapV2Handler[39m       ·  swapETHToTokens                       ·     [36m131496[39m  ·     [31m163706[39m  ·     147440  ·          [90m116[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [90mWithdrawManager[39m        ·  initialize                            ·      [36m68610[39m  ·      [31m68622[39m  ·      68618  ·            [90m3[39m  ·          [32m[90m-[32m[39m  │
+··························|········································|·············|·············|·············|···············|··············
+|  [32m[1mDeployments[22m[39m                                                     ·                                         ·  [1m% of limit[22m   ·             │
+···································································|·············|·············|·············|···············|··············
+|  AaveAssetHandler                                                ·          -  ·          -  ·    4326308  ·       [90m14.4 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  AccessController                                                ·          -  ·          -  ·     849968  ·        [90m2.8 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  AssetManagementConfig                                           ·          -  ·          -  ·    3570462  ·       [90m11.9 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  BorrowManagerAave                                               ·          -  ·          -  ·    2816013  ·        [90m9.4 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  DepositBatch                                                    ·          -  ·          -  ·     770736  ·        [90m2.6 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  DepositBatchExternalPositions                                   ·          -  ·          -  ·    1471350  ·        [90m4.9 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  DepositManager                                                  ·          -  ·          -  ·     418690  ·        [90m1.4 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  DepositManagerExternalPositions                                 ·          -  ·          -  ·     749535  ·        [90m2.5 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  EnsoHandler                                                     ·          -  ·          -  ·    1162936  ·        [90m3.9 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  ExternalPositionStorage                                         ·          -  ·          -  ·     231110  ·        [90m0.8 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  FeeModule                                                       ·          -  ·          -  ·    2116217  ·        [90m7.1 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  FeeModuleV3_2                                                   ·          -  ·          -  ·    2012796  ·        [90m6.7 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  Portfolio                                                       ·          -  ·          -  ·    5190700  ·       [90m17.3 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PortfolioCalculations                                           ·          -  ·          -  ·    4553167  ·       [90m15.2 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PortfolioFactory                                                ·          -  ·          -  ·    4726811  ·       [90m15.8 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PortfolioV3_2                                                   ·          -  ·          -  ·    4423675  ·       [90m14.7 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PortfolioV3_4                                                   ·          -  ·          -  ·    4400256  ·       [90m14.7 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PositionManagerUniswap                                          ·          -  ·          -  ·    5009106  ·       [90m16.7 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PositionWrapper                                                 ·          -  ·          -  ·    1817408  ·        [90m6.1 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PriceOracle                                                     ·          -  ·          -  ·     905660  ·          [90m3 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  PriceOracleL2                                                   ·          -  ·          -  ·     982920  ·        [90m3.3 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  ProtocolConfig                                                  ·          -  ·          -  ·    3590812  ·         [90m12 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  Rebalancing                                                     ·          -  ·          -  ·    4611792  ·       [90m15.4 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  SwapHandlerV3                                                   ·          -  ·          -  ·     277288  ·        [90m0.9 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  SwapVerificationLibraryUniswap                                  ·          -  ·          -  ·    1207981  ·          [90m4 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  TokenBalanceLibrary                                             ·          -  ·          -  ·     810647  ·        [90m2.7 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  TokenExclusionManager                                           ·          -  ·          -  ·    1696322  ·        [90m5.7 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  TokenExclusionManagerV3_2                                       ·          -  ·          -  ·    1439663  ·        [90m4.8 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  TokenRemovalVault                                               ·          -  ·          -  ·     388149  ·        [90m1.3 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  UniswapHandler                                                  ·          -  ·          -  ·     270832  ·        [90m0.9 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  UniswapV2Handler                                                ·          -  ·          -  ·     974807  ·        [90m3.2 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  VelvetSafeModule                                                ·          -  ·          -  ·     792443  ·        [90m2.6 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  WithdrawBatch                                                   ·          -  ·          -  ·     590879  ·          [90m2 %[39m  ·          [32m[90m-[32m[39m  │
+···································································|·············|·············|·············|···············|··············
+|  WithdrawManager                                                 ·          -  ·          -  ·     649400  ·        [90m2.2 %[39m  ·          [32m[90m-[32m[39m  │
+·------------------------------------------------------------------|-------------|-------------|-------------|---------------|-------------·
+
+  254 passing (10m)
+  108 failing
+
+  1) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  2) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund by nonOwner(Second Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  3) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw in multitoken by owner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at Portfolio._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at Portfolio._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at Portfolio._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at Portfolio.multiTokenWithdrawal (contracts/core/management/VaultManager.sol:136)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  4) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw multitoken by nonOwner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at Portfolio._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at Portfolio._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at Portfolio._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at Portfolio.multiTokenWithdrawal (contracts/core/management/VaultManager.sol:136)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  5) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0xcd21db4f0000000000000000000000000000000000000000000000000000000067c38f58)
+    at <UnrecognizedContract>.<unknown> (0x000000000022d473030f116ddee9f6b43ac78ba3)
+    at PortfolioV3_2._multiTokenDeposit (contracts/mock/upgradeability/changedDependencies/v3_2/VaultManagerV3_2.sol:137)
+    at PortfolioV3_2.multiTokenDeposit (contracts/mock/upgradeability/changedDependencies/v3_2/VaultManagerV3_2.sol:103)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  6) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund by nonOwner(Second Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  7) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw in multitoken by owner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at PortfolioV3_2.multiTokenWithdrawal (contracts/mock/upgradeability/changedDependencies/v3_2/VaultManagerV3_2.sol:235)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  8) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw multitoken by nonOwner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at PortfolioV3_2.multiTokenWithdrawal (contracts/mock/upgradeability/changedDependencies/v3_2/VaultManagerV3_2.sol:235)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  9) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at PortfolioV3_3._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at PortfolioV3_3._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at PortfolioV3_3.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  10) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund by nonOwner(Second Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  11) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw in multitoken by owner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at PortfolioV3_3._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at PortfolioV3_3._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at PortfolioV3_3._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at PortfolioV3_3.multiTokenWithdrawal (contracts/core/management/VaultManager.sol:136)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  12) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw multitoken by nonOwner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at PortfolioV3_3._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at PortfolioV3_3._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at PortfolioV3_3._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at PortfolioV3_3.multiTokenWithdrawal (contracts/core/management/VaultManager.sol:136)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  13) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at PortfolioV3_3._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at PortfolioV3_3._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at PortfolioV3_3.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  14) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should deposit multitoken into fund by nonOwner(Second Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  15) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw in multitoken by owner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at PortfolioV3_3._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at PortfolioV3_3._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at PortfolioV3_3._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at PortfolioV3_3.multiTokenWithdrawal (contracts/core/management/VaultManager.sol:136)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  16) Tests for Upgradeability
+       Tests for Deposit + Withdrawal
+         Upgradeability Testing
+           should withdraw multitoken by nonOwner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at PortfolioV3_3._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at PortfolioV3_3._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at PortfolioV3_3._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at PortfolioV3_3.multiTokenWithdrawal (contracts/core/management/VaultManager.sol:136)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  17) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  18) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should deposit multitoken into fund by nonOwner(Second Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  19) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should deposit multitoken into fund (Third Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  20) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should deposit multitoken into fund by nonOwner(Fourth Deposit):
+     Error: call revert exception [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getUserAmountToDeposit(uint256[],address)", data="0xee89a6dc", errorArgs=[], errorName="BalanceOfVaultIsZero", errorSignature="BalanceOfVaultIsZero()", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  21) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should not be able to witdraw if idx token is less then minPortfolioTokenHoldingAmount and not zero:
+     Error: value out-of-bounds (argument="_portfolioTokenAmount", value={"type":"BigNumber","hex":"-0x02540be400"}, code=INVALID_ARGUMENT, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at NumberCoder.Coder._throwError (node_modules/@ethersproject/abi/src.ts/coders/abstract-coder.ts:68:16)
+      at NumberCoder.encode (node_modules/@ethersproject/abi/src.ts/coders/number.ts:35:18)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/abi/src.ts/coders/array.ts:71:19
+      at Array.forEach (<anonymous>)
+      at pack (node_modules/@ethersproject/abi/src.ts/coders/array.ts:54:12)
+      at TupleCoder.encode (node_modules/@ethersproject/abi/src.ts/coders/tuple.ts:54:20)
+      at AbiCoder.encode (node_modules/@ethersproject/abi/src.ts/abi-coder.ts:111:15)
+
+  22) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should not be able to witdraw if idx token is less then updated minPortfolioTokenHoldingAmount and not zero:
+     Error: value out-of-bounds (argument="_portfolioTokenAmount", value={"type":"BigNumber","hex":"-0x0186a0"}, code=INVALID_ARGUMENT, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at NumberCoder.Coder._throwError (node_modules/@ethersproject/abi/src.ts/coders/abstract-coder.ts:68:16)
+      at NumberCoder.encode (node_modules/@ethersproject/abi/src.ts/coders/number.ts:35:18)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/abi/src.ts/coders/array.ts:71:19
+      at Array.forEach (<anonymous>)
+      at pack (node_modules/@ethersproject/abi/src.ts/coders/array.ts:54:12)
+      at TupleCoder.encode (node_modules/@ethersproject/abi/src.ts/coders/tuple.ts:54:20)
+      at AbiCoder.encode (node_modules/@ethersproject/abi/src.ts/abi-coder.ts:111:15)
+
+  23) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should fail to withdraw in multitoken for owner if tokens are not approved:
+     AssertionError: Expected transaction to be reverted with reason 'ERC20: insufficient allowance', but it reverted with panic code 0x12 (Division or modulo division by zero)
+      at async Context.<anonymous> (test/Arbitrum/3_Withdrawal.test.ts:928:9)
+
+  24) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should withdraw in multitoken for owner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at Portfolio._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at Portfolio._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at Portfolio._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at Portfolio.multiTokenWithdrawalFor (contracts/core/management/VaultManager.sol:118)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  25) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           should withdraw multitoken by nonOwner:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at Portfolio._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at Portfolio._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at Portfolio._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at Portfolio.emergencyWithdrawalFor (contracts/core/management/VaultManager.sol:188)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  26) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           treasuries should withdraw their fee:
+     Error: VM Exception while processing transaction: reverted with panic code 0x12 (Division or modulo division by zero)
+    at Portfolio._processTokenWithdrawal (contracts/core/management/VaultManager.sol:535)
+    at Portfolio._processTokenWithdrawals (contracts/core/management/VaultManager.sol:493)
+    at Portfolio._multiTokenWithdrawal (contracts/core/management/VaultManager.sol:416)
+    at Portfolio.emergencyWithdrawal (contracts/core/management/VaultManager.sol:159)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  27) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Withdrawal Tests
+           new user should mint token based on new initialPortfolioAmount:
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  28) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           deposit multitoken into fund(First Deposit) should fail:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidMintAmount', but it reverted with custom error 'InsufficientAllowance'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:722:9)
+
+  29) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into 2nd fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  30) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           Deposit multitoken into 2nd fund(Second Deposit) should fail, if user inputs zero Deposit Amount:
+     AssertionError: Expected transaction to be reverted with custom error 'MintedAmountIsNotAccepted', but it reverted with custom error 'AmountCannotBeZero'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:896:9)
+
+  31) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into 2nd fund(Second Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  32) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into 2nd fund(Third Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  33) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  34) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund (Second Deposit) should fail if entry fee is not calculated in expected token amount:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidMintAmount', but it reverted with custom error 'InsufficientAllowance'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1195:9)
+
+  35) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund (Second Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  36) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager changes minPortfoliotokenHoldingAmount and user should be not be able to mint token less then accepted by assetManager:
+     AssertionError: Expected transaction to be reverted with custom error 'MintedAmountIsNotAccepted', but it reverted with custom error 'InsufficientAllowance'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1383:9)
+
+  37) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund by nonOwner(Third Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  38) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund by nonOwner(Fourth Deposit):
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  39) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           asset manager teasury should greater then 0:
+
+      AssertionError: expected +0 to be above +0
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1555:17)
+
+  40) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund:
+     Error: VM Exception while processing transaction: reverted with custom error 'InsufficientAllowance()'
+    at Portfolio._multiTokenTransferWithPermit (contracts/core/management/VaultManager.sol:633)
+    at Portfolio._multiTokenDepositWithPermit (contracts/core/management/VaultManager.sol:297)
+    at Portfolio.multiTokenDeposit (contracts/core/management/VaultManager.sol:77)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  41) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if wrong buy token is passed to enso:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1774:30)
+
+  42) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if wrong buy token is passed to enso and as buy token (not included in new token list):
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1834:30)
+
+  43) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if portfolio token should be sold completely but balance is not zero:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1896:30)
+
+  44) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance should fail if bought token is missing in new token list:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2076:30)
+
+  45) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2176:30)
+
+  46) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should update weights/amounts:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2235:30)
+
+  47) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1(owner) should be able to claim their removed tokens at snapshot id 1:
+
+      AssertionError: expected 655289 to be above 655289. The numerical values of the given "ethers.BigNumber" and "ethers.BigNumber" inputs were compared, and they differed.
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2324:41)
+
+  48) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1 (owner) should be able to claim the partially removed token:
+
+      AssertionError: expected 967543494434050590575 to be above 967543494434050590575. The numerical values of the given "ethers.BigNumber" and "ethers.BigNumber" inputs were compared, and they differed.
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2551:42)
+
+  49) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager should create 2 snapshot(remove 2 tokens) simultaneously for 2nd Portfolio Fund:
+     Error: VM Exception while processing transaction: reverted with custom error 'BalanceOfVaultIsZero()'
+    at Rebalancing._tokenRemoval (contracts/rebalance/Rebalancing.sol:568)
+    at Rebalancing.removePortfolioToken (contracts/rebalance/Rebalancing.sol:340)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  50) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if startId is greater then last Id:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidId', but it reverted with custom error 'NoTokensRemoved'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2565:9)
+
+  51) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if last Id is greater then current snapshot id:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidId', but it reverted with custom error 'NoTokensRemoved'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2571:9)
+
+  52) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if id is greater then currentSnapsotId:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidId', but it reverted with custom error 'NoTokensRemoved'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2577:9)
+
+  53) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1(owner) should be able to claim both of his removed tokens:
+     Error: division-by-zero [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-division-by-zero ] (fault="division-by-zero", operation="div", code=NUMERIC_FAULT, version=bignumber/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at throwFault (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+      at BigNumber.div (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:84:13)
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2610:12)
+
+  54) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1(owner) should not get any token if he claims removed token:
+     Error: VM Exception while processing transaction: reverted with custom error 'NoTokensRemoved()'
+    at TokenExclusionManager.claimTokenAtId (contracts/core/management/TokenExclusionManager.sol:190)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  55) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager should create 2 snapshot(remove 2 tokens) simultaneously for 2nd Portfolio Fund:
+     Error: VM Exception while processing transaction: reverted with custom error 'BalanceOfVaultIsZero()'
+    at Rebalancing._tokenRemoval (contracts/rebalance/Rebalancing.sol:568)
+    at Rebalancing.removePortfolioToken (contracts/rebalance/Rebalancing.sol:340)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  56) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           addr2 should claim all 7 tokens:
+     Error: division-by-zero [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-division-by-zero ] (fault="division-by-zero", operation="div", code=NUMERIC_FAULT, version=bignumber/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at throwFault (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+      at BigNumber.div (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:84:13)
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2731:12)
+
+  57) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager should remove last token from portfoliio:
+     Error: VM Exception while processing transaction: reverted with custom error 'BalanceOfVaultIsZero()'
+    at Rebalancing._tokenRemoval (contracts/rebalance/Rebalancing.sol:568)
+    at Rebalancing.removePortfolioToken (contracts/rebalance/Rebalancing.sol:340)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  58) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           addr2 should be able to claim last token:
+     Error: division-by-zero [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-division-by-zero ] (fault="division-by-zero", operation="div", code=NUMERIC_FAULT, version=bignumber/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at throwFault (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+      at BigNumber.div (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:84:13)
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2909:12)
+
+  59) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           addr2 should not be able to claim token if already claimed:
+     Error: VM Exception while processing transaction: reverted with custom error 'NoTokensRemoved()'
+    at TokenExclusionManager.claimTokenAtId (contracts/core/management/TokenExclusionManager.sol:190)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  60) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           old user(owner) should be able to claim removed tokens:
+     Error: VM Exception while processing transaction: reverted with custom error 'NoTokensRemoved()'
+    at TokenExclusionManager.claimTokenAtId (contracts/core/management/TokenExclusionManager.sol:190)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  61) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:457:26)
+
+  62) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using one of the portfolio token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:509:28)
+
+  63) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using erc20 token other then portfolio token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:569:28)
+
+  64) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if receiver in calldata is not token holder:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  65) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if receiver in calldata is not token holder and tries to withdraw in native token:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  66) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in single token by user:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  67) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in single token by user in native token:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  68) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if balance to deposit is zero:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:951:28)
+
+  69) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         "before all" hook in "Tests for Deposit + Withdrawal":
+     Error: VM Exception while processing transaction: reverted with custom error 'PriceOracleExpired()'
+    at PriceOracleL2._latestRoundData (contracts/oracle/PriceOracleL2.sol:58)
+    at PriceOracleL2.convertToUSD18Decimals (contracts/oracle/PriceOracleAbstract.sol:157)
+    at ProtocolConfig.enableTokens (contracts/config/protocol/TokenManagement.sol:59)
+    at <UnrecognizedContract>.<unknown> (0x82fe2d4d438a708261dff5e45b1f04c08ddde7d8)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  70) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           protocol owner should enable tokens:
+     Error: VM Exception while processing transaction: reverted with custom error 'PriceOracleExpired()'
+    at PriceOracleL2._latestRoundData (contracts/oracle/PriceOracleL2.sol:58)
+    at PriceOracleL2.convertToUSD18Decimals (contracts/oracle/PriceOracleAbstract.sol:157)
+    at ProtocolConfig.enableTokens (contracts/config/protocol/TokenManagement.sol:59)
+    at <UnrecognizedContract>.<unknown> (0x1fba7b1c8804b4f9110183f2074b497a961f16f3)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  71) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should create new position:
+     Error: VM Exception while processing transaction: reverted with custom error 'TokenNotEnabled()'
+    at PositionManagerUniswap.createNewWrapperPosition (contracts/wrappers/uniswapV3/PositionManagerAbstractUniswap.sol:222)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  72) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should init tokens should fail if the list includes a non-whitelisted token:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  73) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should init tokens:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  74) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund (First Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:573:33)
+
+  75) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund (Second Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:661:33)
+
+  76) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund (Third Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:775:33)
+
+  77) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund from nonOwner (Fourth Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:897:33)
+
+  78) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           nonOwner should not be able to update the price range:
+     TypeError: Cannot read properties of undefined (reading 'token0')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:953:46)
+      at processImmediate (node:internal/timers:511:21)
+
+  79) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should not be able to update the price range with zero swap amount:
+     TypeError: Cannot read properties of undefined (reading 'totalSupply')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:976:55)
+      at processImmediate (node:internal/timers:511:21)
+
+  80) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should update the price range:
+     TypeError: Cannot read properties of undefined (reading 'totalSupply')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:1001:55)
+      at processImmediate (node:internal/timers:511:21)
+
+  81) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should withdraw in multitoken by nonwOwner:
+
+      AssertionError: expected +0 to be above +0
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:1075:44)
+
+  82) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should withdraw in multitoken by owner:
+
+      AssertionError: expected +0 to be above +0
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:1123:44)
+
+  83) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should not be able to upgrade the position wrapper if protocol is not paused:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  84) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should upgrade the position wrapper:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  85) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           nonOwner should not be able to upgrade the position wrapper:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  86) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:463:26)
+
+  87) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:497:26)
+
+  88) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbDAI:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:549:30)
+
+  89) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbLINK:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:622:30)
+
+  90) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:679:26)
+
+  91) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should remove tokens as collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.disableCollateralTokens (contracts/rebalance/Rebalancing.sol:439)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  92) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should enable collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.enableCollateralTokens (contracts/rebalance/Rebalancing.sol:416)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  93) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow ARB using aArbLink as collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.borrow (contracts/rebalance/Rebalancing.sol:488)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  94) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow USDT using aARBDAI as collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.borrow (contracts/rebalance/Rebalancing.sol:488)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  95) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should repay half of borrowed USDT using vault token:
+     Error: VM Exception while processing transaction: reverted with custom error 'AmountCannotBeZero()'
+    at Rebalancing.directDebtRepayment (contracts/rebalance/Rebalancing.sol:285)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  96) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should repay half of ARB using flashloan:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getAaveCollateralAmountToSell(address,address,address,address[],address[],uint256[],uint256,uint256)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  97) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in BTC by owner(user1):
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  98) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:458:26)
+
+  99) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:492:26)
+
+  100) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbWBTC:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:544:30)
+
+  101) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbLINK:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:617:30)
+
+  102) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:674:26)
+
+  103) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should remove tokens as collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.disableCollateralTokens (contracts/rebalance/Rebalancing.sol:439)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  104) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should enable collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.enableCollateralTokens (contracts/rebalance/Rebalancing.sol:416)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  105) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow ARB using aArbLink as collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.borrow (contracts/rebalance/Rebalancing.sol:488)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  106) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow USDT using aArbWBTC as collateral:
+     Error: VM Exception while processing transaction: reverted with custom error 'CallFailed()'
+    at VelvetSafeModule.executeWallet (contracts/vault/VelvetSafeModule.sol:48)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at Portfolio._vaultInteraction (contracts/core/management/VaultManager.sol:266)
+    at Portfolio.vaultInteraction (contracts/core/management/VaultManager.sol:252)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.borrow (contracts/rebalance/Rebalancing.sol:488)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  107) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should repay half of USDT using flashloan:
+     Error: VM Exception while processing transaction: reverted with custom error 'RepayVaultCallFailed()'
+    at BorrowManagerAave.repayVault (contracts/core/management/BorrowManager/AbstractBorrowManager.sol:165)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at Rebalancing.repay (contracts/rebalance/Rebalancing.sol:262)
+    at ERC1967Proxy._delegate (@openzeppelin/contracts/proxy/Proxy.sol:31)
+    at ERC1967Proxy._fallback (@openzeppelin/contracts/proxy/Proxy.sol:60)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  108) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in BTC by owner(user1):
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+
+

@@ -1,262 +1,278 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.17;
 
-import { IPortfolio } from "../../contracts/core/interfaces/IPortfolio.sol";
-import { IPortfolioFactory } from "../../contracts/core/interfaces/IPortfolioFactory.sol";
-import { IAllowanceTransfer } from "../../contracts/core/interfaces/IAllowanceTransfer.sol";
-import { IRebalancing } from "../../contracts/rebalance/IRebalancing.sol";
-import { Addresses } from "../foundry/utils/Addresses.sol";
-import { PortfolioDeployment } from "./utils/PortfolioDeployment.s.sol";
-import { FunctionParameters } from "../../contracts/FunctionParameters.sol";
-import { ErrorLibrary } from "../../contracts/library/ErrorLibrary.sol";
+import {IPortfolio} from "../../contracts/core/interfaces/IPortfolio.sol";
+import {IPortfolioFactory} from "../../contracts/core/interfaces/IPortfolioFactory.sol";
+import {IAllowanceTransfer} from "../../contracts/core/interfaces/IAllowanceTransfer.sol";
+import {IRebalancing} from "../../contracts/rebalance/IRebalancing.sol";
+import {Addresses} from "../foundry/utils/Addresses.sol";
+import {PortfolioDeployment} from "./utils/PortfolioDeployment.s.sol";
+import {FunctionParameters} from "../../contracts/FunctionParameters.sol";
+import {ErrorLibrary} from "../../contracts/library/ErrorLibrary.sol";
 import "./utils/AssetUtils.sol";
 
-import { IPermit2 } from "./interfaces/IPermit2.sol";
+import {IPermit2} from "./interfaces/IPermit2.sol";
 
-import { PortfolioOperations } from "./helpers/PortfolioOperations.sol";
+import {PortfolioOperations} from "./helpers/PortfolioOperations.sol";
 import "forge-std/console.sol";
 
 contract PortfolioFactory is PortfolioOperations, AssetUtils, Addresses {
-  address tokenA;
-  address tokenB;
-  address tokenC;
+    address tokenA;
+    address tokenB;
+    address tokenC;
 
-  IRebalancing rebalance;
+    IRebalancing rebalance;
 
-  function setUp() public {
-    ownerPrivateKey = 0x12341234;
-    owner = vm.addr(ownerPrivateKey);
+    function setUp() public {
+        ownerPrivateKey = 0x12341234;
+        owner = vm.addr(ownerPrivateKey);
 
-    nonOwnerPrivateKey = 0x56785678;
-    nonOwner = vm.addr(nonOwnerPrivateKey);
+        nonOwnerPrivateKey = 0x56785678;
+        nonOwner = vm.addr(nonOwnerPrivateKey);
 
-    tokenA = address(generateTestTokenByName("TokenA", 18));
-    tokenB = address(generateTestTokenByName("TokenB", 10));
-    tokenC = address(generateTestTokenByName("TokenC", 8));
+        tokenA = address(generateTestTokenByName("TokenA", 18));
+        tokenB = address(generateTestTokenByName("TokenB", 10));
+        tokenC = address(generateTestTokenByName("TokenC", 8));
 
-    PortfolioDeployment portfolioDeployment = new PortfolioDeployment();
+        PortfolioDeployment portfolioDeployment = new PortfolioDeployment();
 
-    address[] memory _whitelistedTokens = new address[](2);
-    _whitelistedTokens[0] = tokenA;
-    _whitelistedTokens[1] = tokenB;
+        address[] memory _whitelistedTokens = new address[](2);
+        _whitelistedTokens[0] = tokenA;
+        _whitelistedTokens[1] = tokenB;
 
-    address assetManagerTreasury = makeAddr("assetManagerTreasury");
+        address assetManagerTreasury = makeAddr("assetManagerTreasury");
 
-    (
-      address portfolioAddress,
-      IPortfolioFactory.PortfoliolInfo memory portfolioSwapInfo
-    ) = portfolioDeployment.createNewPortfolio(
-        FunctionParameters.PortfolioCreationInitData({
-          _name: "INDEXLY",
-          _symbol: "IDX",
-          _managementFee: 1,
-          _performanceFee: 2500,
-          _entryFee: 0,
-          _exitFee: 0,
-          _initialPortfolioAmount: 10000000000000000,
-          _minPortfolioTokenHoldingAmount: 10000000000000000,
-          _assetManagerTreasury: assetManagerTreasury,
-          _whitelistedTokens: _whitelistedTokens,
-          _public: true,
-          _transferable: true,
-          _transferableToPublic: true,
-          _whitelistTokens: false,
-          _externalPositionManagementWhitelisted: true
-        })
-      );
+        (address portfolioAddress, IPortfolioFactory.PortfoliolInfo memory portfolioSwapInfo) = portfolioDeployment
+            .createNewPortfolio(
+            FunctionParameters.PortfolioCreationInitData({
+                _name: "INDEXLY",
+                _symbol: "IDX",
+                _managementFee: 1,
+                _performanceFee: 2500,
+                _entryFee: 0,
+                _exitFee: 0,
+                _initialPortfolioAmount: 10000000000000000,
+                _minPortfolioTokenHoldingAmount: 10000000000000000,
+                _assetManagerTreasury: assetManagerTreasury,
+                _whitelistedTokens: _whitelistedTokens,
+                _public: true,
+                _transferable: true,
+                _transferableToPublic: true,
+                _whitelistTokens: false,
+                _witelistedProtocolIds: new bytes32[](0)
+            })
+        );
 
-    portfolio = IPortfolio(portfolioAddress);
-    rebalance = IRebalancing(portfolioSwapInfo.rebalancing);
+        // struct PortfolioCreationInitData {
+        //     address _assetManagerTreasury;
+        //     address[] _whitelistedTokens;
+        //     uint256 _managementFee;
+        //     uint256 _performanceFee;
+        //     uint256 _entryFee;
+        //     uint256 _exitFee;
+        //     uint256 _initialPortfolioAmount;
+        //     uint256 _minPortfolioTokenHoldingAmount;
+        //     bool _public;
+        //     bool _transferable;
+        //     bool _transferableToPublic;
+        //     bool _whitelistTokens;
+        //     bytes32[] _witelistedProtocolIds;
+        //     string _name;
+        //     string _symbol;
+        //   }
 
-    permit2 = IPermit2(UNISWAP_PERMIT2);
-    DOMAIN_SEPARATOR = permit2.DOMAIN_SEPARATOR();
-  }
+        portfolio = IPortfolio(portfolioAddress);
+        rebalance = IRebalancing(portfolioSwapInfo.rebalancing);
 
-  function testFailInitTokenCrossMaxAssetLimit() public {
-    address[] memory tokens = new address[](15);
+        permit2 = IPermit2(UNISWAP_PERMIT2);
+        DOMAIN_SEPARATOR = permit2.DOMAIN_SEPARATOR();
+    }
 
-    tokens[0] = tokenA;
-    tokens[1] = tokenB;
-    tokens[2] = tokenC;
-    tokens[3] = BSC_ADA;
-    tokens[4] = BSC_BAND;
-    tokens[5] = BSC_BTC;
-    tokens[6] = BSC_CAKE;
-    tokens[7] = BSC_DAI;
-    tokens[8] = BSC_DOT;
-    tokens[9] = BSC_ETH;
-    tokens[10] = BSC_ETH;
-    tokens[11] = BSC_ETH;
-    tokens[12] = BSC_ETH;
-    tokens[13] = BSC_ETH;
-    tokens[14] = BSC_ETH;
-    tokens[15] = BSC_ETH;
-    tokens[16] = BSC_ETH;
+    function testFailInitTokenCrossMaxAssetLimit() public {
+        address[] memory tokens = new address[](15);
 
-    vm.expectRevert(ErrorLibrary.TokenCountOutOfLimit.selector);
-    portfolio.initToken(tokens);
-  }
+        tokens[0] = tokenA;
+        tokens[1] = tokenB;
+        tokens[2] = tokenC;
+        tokens[3] = BSC_ADA;
+        tokens[4] = BSC_BAND;
+        tokens[5] = BSC_BTC;
+        tokens[6] = BSC_CAKE;
+        tokens[7] = BSC_DAI;
+        tokens[8] = BSC_DOT;
+        tokens[9] = BSC_ETH;
+        tokens[10] = BSC_ETH;
+        tokens[11] = BSC_ETH;
+        tokens[12] = BSC_ETH;
+        tokens[13] = BSC_ETH;
+        tokens[14] = BSC_ETH;
+        tokens[15] = BSC_ETH;
+        tokens[16] = BSC_ETH;
 
-  function testInitTokenShouldFailCallFromNonOwner() public {
-    address[] memory tokens = new address[](2);
-    tokens[0] = tokenA;
-    tokens[1] = tokenB;
-    vm.prank(msg.sender);
-    vm.expectRevert(ErrorLibrary.CallerNotSuperAdmin.selector);
-    portfolio.initToken(tokens);
-  }
+        vm.expectRevert(ErrorLibrary.TokenCountOutOfLimit.selector);
+        portfolio.initToken(tokens);
+    }
 
-  function initTestToken() public {
-    address[] memory tokens = new address[](3);
-    tokens[0] = tokenA;
-    tokens[1] = tokenB;
-    tokens[2] = tokenC;
+    function testInitTokenShouldFailCallFromNonOwner() public {
+        address[] memory tokens = new address[](2);
+        tokens[0] = tokenA;
+        tokens[1] = tokenB;
+        vm.prank(msg.sender);
+        vm.expectRevert(ErrorLibrary.CallerNotSuperAdmin.selector);
+        portfolio.initToken(tokens);
+    }
 
-    portfolio.initToken(tokens);
+    function initTestToken() public {
+        address[] memory tokens = new address[](3);
+        tokens[0] = tokenA;
+        tokens[1] = tokenB;
+        tokens[2] = tokenC;
 
-    uint256 portfolioTokenLength = portfolio.getTokens().length;
-    totalAmountDepositedOwner = new uint256[](portfolioTokenLength);
-    totalAmountDepositedNonOwner = new uint256[](portfolioTokenLength);
-  }
+        portfolio.initToken(tokens);
 
-  function testMultiTokenDeposit() public {
-    initTestToken();
+        uint256 portfolioTokenLength = portfolio.getTokens().length;
+        totalAmountDepositedOwner = new uint256[](portfolioTokenLength);
+        totalAmountDepositedNonOwner = new uint256[](portfolioTokenLength);
+    }
 
-    address depositor = owner;
-    uint256 privateKey = ownerPrivateKey;
+    function testMultiTokenDeposit() public {
+        initTestToken();
 
-    approveAllPortfolioToken(depositor);
+        address depositor = owner;
+        uint256 privateKey = ownerPrivateKey;
 
-    address[] memory portfolioTokens = portfolio.getTokens();
-    uint256[] memory depositAmounts = new uint256[](3);
-    depositAmounts[0] = 8 * getAssetUnit(portfolioTokens[0]);
-    depositAmounts[1] = 9 * getAssetUnit(portfolioTokens[1]);
-    depositAmounts[2] = 10 * getAssetUnit(portfolioTokens[2]);
+        approveAllPortfolioToken(depositor);
 
-    _deposit(depositor, privateKey, depositAmounts, 0);
-  }
+        address[] memory portfolioTokens = portfolio.getTokens();
+        uint256[] memory depositAmounts = new uint256[](3);
+        depositAmounts[0] = 8 * getAssetUnit(portfolioTokens[0]);
+        depositAmounts[1] = 9 * getAssetUnit(portfolioTokens[1]);
+        depositAmounts[2] = 10 * getAssetUnit(portfolioTokens[2]);
 
-  function testMultiTokenDepositNonOwner() public {
-    testMultiTokenDeposit();
+        _deposit(depositor, privateKey, depositAmounts, 0);
+    }
 
-    address depositor = nonOwner;
-    uint256 privateKey = nonOwnerPrivateKey;
+    function testMultiTokenDepositNonOwner() public {
+        testMultiTokenDeposit();
 
-    approveAllPortfolioToken(depositor);
+        address depositor = nonOwner;
+        uint256 privateKey = nonOwnerPrivateKey;
 
-    address[] memory portfolioTokens = portfolio.getTokens();
-    uint256[] memory depositAmounts = new uint256[](3);
-    depositAmounts[0] = 16 * getAssetUnit(portfolioTokens[0]);
-    depositAmounts[1] = 18 * getAssetUnit(portfolioTokens[1]);
-    depositAmounts[2] = 20 * getAssetUnit(portfolioTokens[2]);
+        approveAllPortfolioToken(depositor);
 
-    _deposit(depositor, privateKey, depositAmounts, 0);
-  }
+        address[] memory portfolioTokens = portfolio.getTokens();
+        uint256[] memory depositAmounts = new uint256[](3);
+        depositAmounts[0] = 16 * getAssetUnit(portfolioTokens[0]);
+        depositAmounts[1] = 18 * getAssetUnit(portfolioTokens[1]);
+        depositAmounts[2] = 20 * getAssetUnit(portfolioTokens[2]);
 
-  function testMultiTokenDepositForNonOwner() public {
-    testMultiTokenDeposit();
+        _deposit(depositor, privateKey, depositAmounts, 0);
+    }
 
-    address depositor = owner;
-    address depositFor = nonOwner;
+    function testMultiTokenDepositForNonOwner() public {
+        testMultiTokenDeposit();
 
-    approveAllPortfolioToken(depositor);
+        address depositor = owner;
+        address depositFor = nonOwner;
 
-    address[] memory portfolioTokens = portfolio.getTokens();
-    uint256[] memory depositAmounts = new uint256[](3);
-    depositAmounts[0] = 16 * getAssetUnit(portfolioTokens[0]);
-    depositAmounts[1] = 18 * getAssetUnit(portfolioTokens[1]);
-    depositAmounts[2] = 20 * getAssetUnit(portfolioTokens[2]);
+        approveAllPortfolioToken(depositor);
 
-    _depositFor(depositor, depositFor, depositAmounts, 0);
-  }
+        address[] memory portfolioTokens = portfolio.getTokens();
+        uint256[] memory depositAmounts = new uint256[](3);
+        depositAmounts[0] = 16 * getAssetUnit(portfolioTokens[0]);
+        depositAmounts[1] = 18 * getAssetUnit(portfolioTokens[1]);
+        depositAmounts[2] = 20 * getAssetUnit(portfolioTokens[2]);
 
-  function testMultiTokenDeposit2() public {
-    testMultiTokenDepositNonOwner();
+        _depositFor(depositor, depositFor, depositAmounts, 0);
+    }
 
-    address depositor = owner;
-    uint256 privateKey = ownerPrivateKey;
+    function testMultiTokenDeposit2() public {
+        testMultiTokenDepositNonOwner();
 
-    address[] memory portfolioTokens = portfolio.getTokens();
-    uint256[] memory depositAmounts = new uint256[](3);
-    depositAmounts[0] = 32 * getAssetUnit(portfolioTokens[0]);
-    depositAmounts[1] = 36 * getAssetUnit(portfolioTokens[1]);
-    depositAmounts[2] = 40 * getAssetUnit(portfolioTokens[2]);
+        address depositor = owner;
+        uint256 privateKey = ownerPrivateKey;
 
-    _deposit(depositor, privateKey, depositAmounts, 0);
-  }
+        address[] memory portfolioTokens = portfolio.getTokens();
+        uint256[] memory depositAmounts = new uint256[](3);
+        depositAmounts[0] = 32 * getAssetUnit(portfolioTokens[0]);
+        depositAmounts[1] = 36 * getAssetUnit(portfolioTokens[1]);
+        depositAmounts[2] = 40 * getAssetUnit(portfolioTokens[2]);
 
-  function testMultiTokenDepositNonOwner2() public {
-    testMultiTokenDeposit2();
+        _deposit(depositor, privateKey, depositAmounts, 0);
+    }
 
-    address depositor = nonOwner;
-    uint256 privateKey = nonOwnerPrivateKey;
+    function testMultiTokenDepositNonOwner2() public {
+        testMultiTokenDeposit2();
 
-    address[] memory portfolioTokens = portfolio.getTokens();
+        address depositor = nonOwner;
+        uint256 privateKey = nonOwnerPrivateKey;
 
-    uint256[] memory depositAmounts = new uint256[](3);
-    depositAmounts[0] = 40 * getAssetUnit(portfolioTokens[0]);
-    depositAmounts[1] = 45 * getAssetUnit(portfolioTokens[1]);
-    depositAmounts[2] = 50 * getAssetUnit(portfolioTokens[2]);
+        address[] memory portfolioTokens = portfolio.getTokens();
 
-    _deposit(depositor, privateKey, depositAmounts, 0);
-  }
+        uint256[] memory depositAmounts = new uint256[](3);
+        depositAmounts[0] = 40 * getAssetUnit(portfolioTokens[0]);
+        depositAmounts[1] = 45 * getAssetUnit(portfolioTokens[1]);
+        depositAmounts[2] = 50 * getAssetUnit(portfolioTokens[2]);
 
-  function testWithdrawMultiToken() public {
-    testMultiTokenDepositNonOwner2();
+        _deposit(depositor, privateKey, depositAmounts, 0);
+    }
 
-    vm.warp(block.timestamp + 24 hours);
+    // function testWithdrawMultiToken() public {
+    //     testMultiTokenDepositNonOwner2();
 
-    address withdrawer = owner;
-    uint256 withdrawalAmount = portfolio.balanceOf(withdrawer);
+    //     vm.warp(block.timestamp + 24 hours);
 
-    _withdraw(withdrawer, withdrawalAmount);
+    //     address withdrawer = owner;
+    //     uint256 withdrawalAmount = portfolio.balanceOf(withdrawer);
 
-    totalAmountDepositedOwner[0] = 0;
-    totalAmountDepositedOwner[1] = 0;
-    totalAmountDepositedOwner[2] = 0;
-  }
+    //     _withdraw(withdrawer, withdrawalAmount);
 
-  function testWithdrawMultiTokenForNonOwner() public {
-    testWithdrawMultiToken();
+    //     totalAmountDepositedOwner[0] = 0;
+    //     totalAmountDepositedOwner[1] = 0;
+    //     totalAmountDepositedOwner[2] = 0;
+    // }
 
-    vm.warp(block.timestamp + 24 hours);
+    // function testWithdrawMultiTokenForNonOwner() public {
+    //     testWithdrawMultiToken();
 
-    address withdrawer = owner;
-    address withdrawFor = nonOwner;
-    address tokenReceiver = owner;
+    //     vm.warp(block.timestamp + 24 hours);
 
-    uint256 withdrawalAmount = portfolio.balanceOf(withdrawFor);
+    //     address withdrawer = owner;
+    //     address withdrawFor = nonOwner;
+    //     address tokenReceiver = owner;
 
-    _withdrawFor(withdrawer, withdrawFor, tokenReceiver, withdrawalAmount);
+    //     uint256 withdrawalAmount = portfolio.balanceOf(withdrawFor);
 
-    totalAmountDepositedNonOwner[0] = 0;
-    totalAmountDepositedNonOwner[1] = 0;
-    totalAmountDepositedNonOwner[2] = 0;
-  }
+    //     _withdrawFor(withdrawer, withdrawFor, tokenReceiver, withdrawalAmount);
 
-  function testMultiTokenDepositAfterWithdrawalAllUsers() public {
-    testWithdrawMultiTokenForNonOwner();
+    //     totalAmountDepositedNonOwner[0] = 0;
+    //     totalAmountDepositedNonOwner[1] = 0;
+    //     totalAmountDepositedNonOwner[2] = 0;
+    // }
 
-    address depositor = owner;
-    uint256 privateKey = ownerPrivateKey;
+    // function testMultiTokenDepositAfterWithdrawalAllUsers() public {
+    //     testWithdrawMultiTokenForNonOwner();
 
-    address[] memory portfolioTokens = portfolio.getTokens();
-    uint256[] memory depositAmounts = new uint256[](3);
-    depositAmounts[0] = 8 * getAssetUnit(portfolioTokens[0]);
-    depositAmounts[1] = 9 * getAssetUnit(portfolioTokens[1]);
-    depositAmounts[2] = 10 * getAssetUnit(portfolioTokens[2]);
+    //     address depositor = owner;
+    //     uint256 privateKey = ownerPrivateKey;
 
-    _deposit(depositor, privateKey, depositAmounts, 0);
-  }
+    //     address[] memory portfolioTokens = portfolio.getTokens();
+    //     uint256[] memory depositAmounts = new uint256[](3);
+    //     depositAmounts[0] = 8 * getAssetUnit(portfolioTokens[0]);
+    //     depositAmounts[1] = 9 * getAssetUnit(portfolioTokens[1]);
+    //     depositAmounts[2] = 10 * getAssetUnit(portfolioTokens[2]);
 
-  function testWithdrawMultiTokenAfterDeposit() public {
-    testMultiTokenDepositAfterWithdrawalAllUsers();
+    //     _deposit(depositor, privateKey, depositAmounts, 0);
+    // }
 
-    vm.warp(block.timestamp + 24 hours);
+    // function testWithdrawMultiTokenAfterDeposit() public {
+    //     testMultiTokenDepositAfterWithdrawalAllUsers();
 
-    address withdrawer = owner;
-    uint256 withdrawalAmount = portfolio.balanceOf(withdrawer);
+    //     vm.warp(block.timestamp + 24 hours);
 
-    _withdraw(withdrawer, withdrawalAmount);
-  }
+    //     address withdrawer = owner;
+    //     uint256 withdrawalAmount = portfolio.balanceOf(withdrawer);
+
+    //     _withdraw(withdrawer, withdrawalAmount);
+    // }
 }

@@ -1,0 +1,996 @@
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into 2nd fund(Second Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0xb71850600cec31d17fe943356e6e9ce6d91edfeb)
+    at <UnrecognizedContract>.<unknown> (0xb71850600cec31d17fe943356e6e9ce6d91edfeb)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  32) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into 2nd fund(Third Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0xb71850600cec31d17fe943356e6e9ce6d91edfeb)
+    at <UnrecognizedContract>.<unknown> (0xb71850600cec31d17fe943356e6e9ce6d91edfeb)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  33) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund(First Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  34) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund (Second Deposit) should fail if entry fee is not calculated in expected token amount:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidMintAmount', but it reverted with custom error 'InsufficientAllowance'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1195:9)
+
+  35) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund (Second Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  36) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager changes minPortfoliotokenHoldingAmount and user should be not be able to mint token less then accepted by assetManager:
+     AssertionError: Expected transaction to be reverted with custom error 'MintedAmountIsNotAccepted', but it reverted with custom error 'InsufficientAllowance'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1383:9)
+
+  37) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund by nonOwner(Third Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  38) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund by nonOwner(Fourth Deposit):
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  39) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           asset manager teasury should greater then 0:
+
+      AssertionError: expected +0 to be above +0
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1555:17)
+
+  40) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should deposit multitoken into fund:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at <UnrecognizedContract>.<unknown> (0x02d53f4dc1bdb2214dae0da09235691d6f937fc0)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  41) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if wrong buy token is passed to enso:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1774:30)
+
+  42) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if wrong buy token is passed to enso and as buy token (not included in new token list):
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1834:30)
+
+  43) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if portfolio token should be sold completely but balance is not zero:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:1896:30)
+
+  44) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance should fail if bought token is missing in new token list:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2076:30)
+
+  45) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2176:30)
+
+  46) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should update weights/amounts:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2235:30)
+
+  47) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1(owner) should be able to claim their removed tokens at snapshot id 1:
+
+      AssertionError: expected 655289 to be above 655289. The numerical values of the given "ethers.BigNumber" and "ethers.BigNumber" inputs were compared, and they differed.
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2324:41)
+
+  48) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1 (owner) should be able to claim the partially removed token:
+
+      AssertionError: expected 967482708355641358798 to be above 967482708355641358798. The numerical values of the given "ethers.BigNumber" and "ethers.BigNumber" inputs were compared, and they differed.
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2551:42)
+
+  49) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager should create 2 snapshot(remove 2 tokens) simultaneously for 2nd Portfolio Fund:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0xee89a6dc)
+    at <UnrecognizedContract>.<unknown> (0x799bf0d0a6f58d16c85cccca178e58f70e458a25)
+    at <UnrecognizedContract>.<unknown> (0x799bf0d0a6f58d16c85cccca178e58f70e458a25)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  50) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if startId is greater then last Id:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidId', but it reverted with custom error 'NoTokensRemoved'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2565:9)
+
+  51) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if last Id is greater then current snapshot id:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidId', but it reverted with custom error 'NoTokensRemoved'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2571:9)
+
+  52) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if id is greater then currentSnapsotId:
+     AssertionError: Expected transaction to be reverted with custom error 'InvalidId', but it reverted with custom error 'NoTokensRemoved'
+      at async Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2577:9)
+
+  53) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1(owner) should be able to claim both of his removed tokens:
+     Error: division-by-zero [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-division-by-zero ] (fault="division-by-zero", operation="div", code=NUMERIC_FAULT, version=bignumber/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at throwFault (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+      at BigNumber.div (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:84:13)
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2610:12)
+
+  54) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           user1(owner) should not get any token if he claims removed token:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x852c5a60)
+    at <UnrecognizedContract>.<unknown> (0xa74c540d2ea7d6338cf9d8980e24915c91bf651b)
+    at <UnrecognizedContract>.<unknown> (0xa74c540d2ea7d6338cf9d8980e24915c91bf651b)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  55) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager should create 2 snapshot(remove 2 tokens) simultaneously for 2nd Portfolio Fund:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0xee89a6dc)
+    at <UnrecognizedContract>.<unknown> (0x799bf0d0a6f58d16c85cccca178e58f70e458a25)
+    at <UnrecognizedContract>.<unknown> (0x799bf0d0a6f58d16c85cccca178e58f70e458a25)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  56) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           addr2 should claim all 7 tokens:
+     Error: division-by-zero [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-division-by-zero ] (fault="division-by-zero", operation="div", code=NUMERIC_FAULT, version=bignumber/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at throwFault (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+      at BigNumber.div (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:84:13)
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2731:12)
+
+  57) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           assetManager should remove last token from portfoliio:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0xee89a6dc)
+    at <UnrecognizedContract>.<unknown> (0x799bf0d0a6f58d16c85cccca178e58f70e458a25)
+    at <UnrecognizedContract>.<unknown> (0x799bf0d0a6f58d16c85cccca178e58f70e458a25)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  58) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           addr2 should be able to claim last token:
+     Error: division-by-zero [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-division-by-zero ] (fault="division-by-zero", operation="div", code=NUMERIC_FAULT, version=bignumber/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at throwFault (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+      at BigNumber.div (node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:84:13)
+      at Context.<anonymous> (test/Arbitrum/4_Deposits.test.ts:2909:12)
+
+  59) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           addr2 should not be able to claim token if already claimed:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x852c5a60)
+    at <UnrecognizedContract>.<unknown> (0xa74c540d2ea7d6338cf9d8980e24915c91bf651b)
+    at <UnrecognizedContract>.<unknown> (0xa74c540d2ea7d6338cf9d8980e24915c91bf651b)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  60) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           old user(owner) should be able to claim removed tokens:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x852c5a60)
+    at <UnrecognizedContract>.<unknown> (0xa74c540d2ea7d6338cf9d8980e24915c91bf651b)
+    at <UnrecognizedContract>.<unknown> (0xa74c540d2ea7d6338cf9d8980e24915c91bf651b)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  61) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:457:26)
+
+  62) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using one of the portfolio token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:509:28)
+
+  63) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using erc20 token other then portfolio token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:569:28)
+
+  64) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if receiver in calldata is not token holder:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  65) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should revert if receiver in calldata is not token holder and tries to withdraw in native token:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  66) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in single token by user:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  67) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in single token by user in native token:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  68) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should fail if balance to deposit is zero:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/5_BatchTx.test.ts:951:28)
+
+  69) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         "before all" hook in "Tests for Deposit + Withdrawal":
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x077bf04a)
+    at <UnrecognizedContract>.<unknown> (0x46ea794e41786ecda2ea2e7b7518d64559658efe)
+    at <UnrecognizedContract>.<unknown> (0x82fe2d4d438a708261dff5e45b1f04c08ddde7d8)
+    at <UnrecognizedContract>.<unknown> (0x82fe2d4d438a708261dff5e45b1f04c08ddde7d8)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  70) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           protocol owner should enable tokens:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x077bf04a)
+    at <UnrecognizedContract>.<unknown> (0x46ea794e41786ecda2ea2e7b7518d64559658efe)
+    at <UnrecognizedContract>.<unknown> (0x1fba7b1c8804b4f9110183f2074b497a961f16f3)
+    at <UnrecognizedContract>.<unknown> (0x1fba7b1c8804b4f9110183f2074b497a961f16f3)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  71) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should create new position:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3f9f188e)
+    at <UnrecognizedContract>.<unknown> (0x492633c6c0b2a9d526c213f92a286170e63eec89)
+    at <UnrecognizedContract>.<unknown> (0x492633c6c0b2a9d526c213f92a286170e63eec89)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  72) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should init tokens should fail if the list includes a non-whitelisted token:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  73) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should init tokens:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  74) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund (First Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:573:33)
+
+  75) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund (Second Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:661:33)
+
+  76) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund (Third Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:775:33)
+
+  77) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should deposit multi-token into fund from nonOwner (Fourth Deposit):
+     TypeError: Cannot read properties of undefined (reading 'balanceOf')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:897:33)
+
+  78) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           nonOwner should not be able to update the price range:
+     TypeError: Cannot read properties of undefined (reading 'token0')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:953:46)
+      at processImmediate (node:internal/timers:511:21)
+
+  79) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should not be able to update the price range with zero swap amount:
+     TypeError: Cannot read properties of undefined (reading 'totalSupply')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:976:55)
+      at processImmediate (node:internal/timers:511:21)
+
+  80) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should update the price range:
+     TypeError: Cannot read properties of undefined (reading 'totalSupply')
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:1001:55)
+      at processImmediate (node:internal/timers:511:21)
+
+  81) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should withdraw in multitoken by nonwOwner:
+
+      AssertionError: expected +0 to be above +0
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:1075:44)
+
+  82) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should withdraw in multitoken by owner:
+
+      AssertionError: expected +0 to be above +0
+      + expected - actual
+
+
+      at Context.<anonymous> (test/Arbitrum/7_PositionWrapper.test.ts:1123:44)
+
+  83) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           owner should not be able to upgrade the position wrapper if protocol is not paused:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  84) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           should upgrade the position wrapper:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  85) Tests for Deposit + Withdrawal
+       Tests for Position Manager + Wrapper
+         Position Wrapper Tests
+           nonOwner should not be able to upgrade the position wrapper:
+     Error: invalid address or ENS name (argument="name", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Logger.throwArgumentError (node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+      at /home/vedh_dev/blockchain/audits/cantina/Velvet-v4/node_modules/@ethersproject/contracts/src.ts/index.ts:123:16
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  86) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:463:26)
+
+  87) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:497:26)
+
+  88) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbDAI:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:549:30)
+
+  89) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbLINK:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:622:30)
+
+  90) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/8_Borrowing.test.ts:679:26)
+
+  91) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should remove tokens as collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  92) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should enable collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  93) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow ARB using aArbLink as collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  94) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow USDT using aARBDAI as collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0x7cb9cd8f9053e944d47e85e89cc3f41eea94558b)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xca1d784ba79c507a4bfd8f28ba91753f83729981)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  95) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should repay half of borrowed USDT using vault token:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0xd11b25af)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at <UnrecognizedContract>.<unknown> (0xffe942d02a40d25ecd825162d9166fc245519792)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  96) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should repay half of ARB using flashloan:
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getAaveCollateralAmountToSell(address,address,address,address[],address[],uint256[],uint256,uint256)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  97) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in BTC by owner(user1):
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)
+
+  98) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:458:26)
+
+  99) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:492:26)
+
+  100) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbWBTC:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:544:30)
+
+  101) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should rebalance to lending token aArbLINK:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:617:30)
+
+  102) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should swap tokens for user using native token:
+     AxiosError: Request failed with status code 401
+      at settle (node_modules/axios/lib/core/settle.js:19:12)
+      at IncomingMessage.handleStreamEnd (node_modules/axios/lib/adapters/http.js:599:11)
+      at IncomingMessage.emit (node:events:519:35)
+      at IncomingMessage.emit (node:domain:489:12)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21)
+      at Axios.request (node_modules/axios/lib/core/Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async createEnsoCallDataRoute (test/Arbitrum/IntentCalculations.ts:62:10)
+      at async Context.<anonymous> (test/Arbitrum/9_DexRepayment.test.ts:674:26)
+
+  103) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should remove tokens as collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  104) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should enable collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  105) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow ARB using aArbLink as collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  106) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should borrow USDT using aArbWBTC as collateral:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x3204506f)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xf476067479cd510bfd788949bc4ca91f66089a46)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0xb85f0778ea95d1368e05763b76bd554111992f09)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  107) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should repay half of USDT using flashloan:
+     Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x6416e5ee)
+    at <UnrecognizedContract>.<unknown> (0xafaf591ee9b2ab0426ac07f09453635c8e2cb42d)
+    at <UnrecognizedContract>.<unknown> (0xafaf591ee9b2ab0426ac07f09453635c8e2cb42d)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at <UnrecognizedContract>.<unknown> (0x804cab821048c0104ac9d975b0a870f04addbd8d)
+    at EdrProviderWrapper.request (node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:444:41)
+    at async TracerWrapper.request (node_modules/hardhat-tracer/src/wrapper.ts:66:16)
+    at async EthersProviderWrapper.send (node_modules/@nomiclabs/hardhat-ethers/src/internal/ethers-provider-wrapper.ts:13:20)
+  
+
+  108) Tests for Deposit + Withdrawal
+       Tests for Deposit + Withdrawal
+         Deposit Tests
+           should withdraw in BTC by owner(user1):
+     Error: call revert exception; VM Exception while processing transaction: reverted with panic code 18 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getWithdrawalAmounts(uint256,address)", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000012", errorArgs=[{"type":"BigNumber","hex":"0x12"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at Interface.decodeFunctionResult (node_modules/@ethersproject/abi/src.ts/interface.ts:427:23)
+      at Contract.<anonymous> (node_modules/@ethersproject/contracts/src.ts/index.ts:400:44)
+      at step (node_modules/@ethersproject/contracts/lib/index.js:48:23)
+      at Object.next (node_modules/@ethersproject/contracts/lib/index.js:29:53)
+      at fulfilled (node_modules/@ethersproject/contracts/lib/index.js:20:58)

@@ -105,9 +105,7 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
      * @dev Swaps ETH for an ERC20 token.
      * @param params SwapETHParams
      */
-    function swapETH(
-        SwapETHParams calldata params
-    ) external payable nonReentrant {
+    function swapETH(SwapETHParams calldata params) external payable nonReentrant {
         if (address(params.tokenIn) != nativeToken) {
             revert CannotSwapTokens();
         }
@@ -152,39 +150,26 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
      * @dev Internal function to perform the swap from ETH to ERC20.
      * @param params SwapETHParams
      */
-    function _swapETH(
-        SwapETHParams memory params
-    ) internal returns (uint256, uint256) {
+    function _swapETH(SwapETHParams memory params) internal returns (uint256, uint256) {
         IERC20 tokenOut = params.tokenOut;
         uint256 amountIn = params.amountIn;
         uint256 minAmountOut = params.minAmountOut;
         address receiver = params.receiver;
         address feeRecipient = params.feeRecipient;
         uint256 feeBps = params.feeBps;
-        _validateInputs(
-            params.tokenIn,
-            address(tokenOut),
-            amountIn,
-            minAmountOut,
-            receiver
-        );
+        _validateInputs(params.tokenIn, address(tokenOut), amountIn, minAmountOut, receiver);
 
         if (msg.value < amountIn) revert IncorrectEtherAmountSent();
         uint256 fee;
         if (feeRecipient != address(0) || feeBps != 0) {
             fee = (amountIn * feeBps) / 10000;
             amountIn -= fee;
-            (bool success, ) = payable(feeRecipient).call{value: fee}("");
+            (bool success,) = payable(feeRecipient).call{value: fee}("");
             if (!success) revert FeeTransferFailed();
         }
 
         uint256 balanceBefore = tokenOut.balanceOf(address(this));
-        _executeAggregatorCall(
-            params.swapData,
-            params.isDelegate,
-            params.aggregator,
-            amountIn
-        );
+        _executeAggregatorCall(params.swapData, params.isDelegate, params.aggregator, amountIn);
         uint256 amountOut = tokenOut.balanceOf(address(this)) - balanceBefore;
 
         if (amountOut < minAmountOut) revert InsufficientOutputBalance();
@@ -198,9 +183,7 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
      * @dev Internal function to swap ERC20 tokens or ERC20 to native ETH.
      * @param params SwapERC20Params
      */
-    function _swapERC20(
-        SwapERC20Params memory params
-    ) internal returns (uint256, uint256) {
+    function _swapERC20(SwapERC20Params memory params) internal returns (uint256, uint256) {
         IERC20 tokenIn = params.tokenIn;
         IERC20 tokenOut = params.tokenOut;
         address aggregator = params.aggregator;
@@ -211,17 +194,12 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
         uint256 feeBps = params.feeBps;
         bytes memory swapData = params.swapData;
         bool isDelegate = params.isDelegate;
-        _validateInputs(
-            address(tokenIn),
-            address(tokenOut),
-            amountIn,
-            minAmountOut,
-            receiver
-        );
+        _validateInputs(address(tokenIn), address(tokenOut), amountIn, minAmountOut, receiver);
 
         if (!isDelegate) {
-            if (address(tokenIn) == usdt)
+            if (address(tokenIn) == usdt) {
                 TransferHelper.safeApprove(address(tokenIn), aggregator, 0);
+            }
             TransferHelper.safeApprove(address(tokenIn), aggregator, amountIn);
         }
         uint256 fee;
@@ -238,7 +216,7 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
             amountOut = address(this).balance - balanceBefore;
             if (amountOut < minAmountOut) revert InsufficientETHOutAmount();
             if (receiver != address(this)) {
-                (bool success, ) = receiver.call{value: amountOut}("");
+                (bool success,) = receiver.call{value: amountOut}("");
                 if (!success) revert SwapFailed();
             }
         } else {
@@ -248,11 +226,7 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
             if (amountOut < minAmountOut) revert InsufficientTokenOutAmount();
 
             if (receiver != address(this)) {
-                TransferHelper.safeTransfer(
-                    address(tokenOut),
-                    receiver,
-                    amountOut
-                );
+                TransferHelper.safeTransfer(address(tokenOut), receiver, amountOut);
             }
         }
 
@@ -266,15 +240,11 @@ contract MetaAggregatorSwapContract is IMetaAggregatorSwapContract {
      * @param aggregator The address of the aggregator to use for the swap.
      * @param value The amount of ETH to send with the call (if applicable).
      */
-    function _executeAggregatorCall(
-        bytes memory swapData,
-        bool isDelegate,
-        address aggregator,
-        uint256 value
-    ) internal {
-        (bool success, bytes memory returnData) = isDelegate
-            ? SWAP_TARGET.delegatecall(swapData)
-            : aggregator.call{value: value}(swapData);
+    function _executeAggregatorCall(bytes memory swapData, bool isDelegate, address aggregator, uint256 value)
+        internal
+    {
+        (bool success, bytes memory returnData) =
+            isDelegate ? SWAP_TARGET.delegatecall(swapData) : aggregator.call{value: value}(swapData);
 
         if (!success) {
             assembly {
